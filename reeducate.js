@@ -378,3 +378,128 @@
 //   return (allPrice += el.price);
 // });
 // console.log(allPrice);
+
+//=================================================================================== დავალება 5
+
+// 1. დაწერე ფუნქცია , რომელიც არგუმენტად იღებს sec-ს და ითვლის უკუსვლით იქმადე სანამ 0-მდე არ მივა
+// function timer(sec) {
+//   let initialValue = sec;
+//   const interval = setInterval(() => {
+//     console.log(initialValue);
+//     initialValue--;
+
+//     if (initialValue < 0) {
+//       clearInterval(interval);
+//     }
+//   }, 1000);
+// }
+// timer(4);
+
+// 2. დაწერე ფუქნცია ფუქნციას გადააწოდე რიცხვი  და ასევე ლოგე რენდომული რიცხვი იქამდე სანამ ეს გადაცემული და რენდომ რიცხვი არ. დაემთხვევა ერთმამენთს
+// function compare(num) {
+//   const interval = setInterval(() => {
+//     let randomNum = Math.floor(Math.random() * 10);
+//     console.log(randomNum);
+//     if (num == randomNum) {
+//       clearInterval(interval);
+//     }
+//   }, 500);
+// }
+// compare(4);
+
+// 3. დაწერე ფუქნცია რომელიც მიიღებს n და callback-ს როცა n > 27-ზე გაუშვი ეს callback-ი რომელიც დააკონსოლებს რომ ეს ნამდვილად მეტია 27-ზე სხვა შემთხვევაში დააკონსოლე რომ n ნაკლებია
+// function callback() {
+//   console.log("N is more than 27");
+// }
+// function func(n, callback) {
+//   if (n > 27) {
+//     return callback();
+//   } else {
+//     console.log("N is less than 27");
+//   }
+// }
+// func(29, callback);
+
+// 4.დაწერე ფუქნცია რომელიც პარამეტრად მიიღებს API და დააბრუნებს ამ API-ში მყოფ  4 - users. https://jsonplaceholder.typicode.com/users დაწერე ორივენაირად than/catch & async/await
+// function getUsersThen() {
+//   fetch("https://jsonplaceholder.typicode.com/users")
+//     .then((res) => res.json())
+//     .then((userData) => {
+//       userData
+//         .slice(0, 4)
+//         .forEach((userData) => console.log(userData.username));
+//     })
+//     .catch((error) => {
+//       console.error("Error fetching user data:", error);
+//     });
+// }
+// getUsersThen();
+
+// async function getUser() {
+//   try {
+//     const response = await fetch(`https://jsonplaceholder.typicode.com/users`);
+//     const userData = await response.json();
+//     userData.slice(0, 4).forEach((userData) => console.log(userData.username));
+//   } catch (error) {
+//     console.error("Error fetching user data:", error);
+//   }
+// }
+// getUser();
+
+// 5) დააწყვილე reduce-თი ცალკე ვისი ასაკიც მეტია 10 ზე და ვისი ასაკიც ნაკლებია 20
+// let people = [
+//   { name: "Giorgi", age: 25 },
+//   { name: "Nika", age: 15 },
+//   { name: "Mariam", age: 30 },
+//   { name: "Luka", age: 18 },
+// ];
+// let newCategory = people.reduce(
+//   (tot, current) => {
+//     let age = current.age;
+//     if (age < 20) {
+//       tot.under20.push(current);
+//     }
+//     if (age > 10) {
+//       tot.over10.push(current);
+//     }
+//     return tot;
+//   },
+//   { under20: [], over10: [] }
+// );
+// console.log(newCategory);
+
+// 6. დაწერე ფუნქცია რომელიც მიიღებს ორ რიცხვს და callback-ს. თუ პირველი მეტია მეორეზე გაუშვი callback და დაუბეჭდე "მეტია", სხვა შემთხვევაში "ნაკლები ან ტოლია".
+// function callback() {
+//   console.log("More");
+// }
+// function compare(a, b, callback) {
+//   if (a > b) {
+//     callback();
+//   } else {
+//     console.log("less or equal");
+//   }
+// }
+// compare(20, 2, callback);
+
+// 7.დაწერე reduce, რომელიც დააჯგუფებს - ცალკე 20-ზე მეტ ფასიან რიცხვებს და
+// ცალკე 20-ზე ნაკლები ან ტოლი ფასიანი ნივთები
+// let products = [
+//   { name: "Mouse", price: 15 },
+//   { name: "Keyboard", price: 45 },
+//   { name: "USB Cable", price: 7 },
+//   { name: "Headphones", price: 29.9 },
+//   { name: "Webcam", price: 52 },
+// ];
+// let newCategory = products.reduce(
+//   (tot, current) => {
+//     if (current.price < 20) {
+//       tot.under20.push(current);
+//     }
+//     if (current.price < 20) {
+//       tot.over20.push(current);
+//     }
+//     return tot;
+//   },
+//   { under20: [], over20: [] }
+// );
+// console.log(newCategory);
