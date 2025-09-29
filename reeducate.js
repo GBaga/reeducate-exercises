@@ -503,3 +503,157 @@
 //   { under20: [], over20: [] }
 // );
 // console.log(newCategory);
+
+//=================================================================================== დავალება 6
+
+// 1) function block(){
+//     for(let i = 1 ;i <10000000000;i++){}
+// }
+
+// console.log("one")
+// block()
+// console.log("two")
+// იპოვე გამოსავალი როგორ შეიძლება გაეშვას ჯერ  console.log("one") console.log("two") შემდეგ ფუნქცია
+// აუცილებელია გამოიყენო ფრომისი
+
+// function block() {
+//   for (let i = 1; i < 10000000; i++) {}
+// }
+// console.log("one");
+// let promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     block(), resolve("Block is finished");
+//   }, 0);
+// });
+// console.log("two");
+// promise.then((message) => console.log(message));
+
+// 2)ორი პრომისი შექმენი (ერთმა დაარესოლვოს, ერთმა დაარეჯექთოს) და ორივე შემთხვევა დაამუშავე then/catch-ით  ცალცალკეც და “ჯგუფურადაც”  - ჯგუფურად Allsetteld გამოიყენე.
+// let promise1 = new Promise((resolve, reject) => {
+//   resolve("Promise1 works");
+// });
+
+// let promise2 = new Promise((resolve, reject) => {
+//   reject("Promise2 doesnt work");
+// });
+// promise1.then((resolve) => console.log(resolve));
+// promise2
+//   .then((resolve) => console.log(resolve))
+//   .catch((error) => console.log(error, "Promise 2 Error"));
+
+// Promise.allSettled([promise1, promise2]).then(([one, two]) =>
+//   console.log(one, two)
+// );
+
+// 3)შექენი 4 პრომისი (ზოგი resolve, ზოგი reject). დააბრუნე მარტო პირველი დარესოლვებული
+
+// let promise1 = new Promise((resolve, reject) => {
+//   setTimeout(() => resolve("Promise1 works"), 300);
+// });
+
+// let promise2 = new Promise((resolve, reject) => {
+//   setTimeout(() => reject("Promise2 doesnt work"), 100);
+// });
+
+// let promise3 = new Promise((resolve, reject) => {
+//   setTimeout(() => resolve("Promise3 works"), 200);
+// });
+
+// let promise4 = new Promise((resolve, reject) => {
+//   setTimeout(() => reject("Promise4 doesnt work"), 50);
+// });
+
+// Promise.any([promise1, promise2, promise3, promise4]).then((response) =>
+//   console.log(response)
+// );
+
+// 4)შექმენი 4 ფრომისი  და რედიუსით დაითვალე რამდენია წარმატებული და რამდენი წარუმატებელი
+
+// let promise1 = new Promise((resolve, reject) => {
+//   setTimeout(() => resolve("Promise1 works"), 300);
+// });
+
+// let promise2 = new Promise((resolve, reject) => {
+//   setTimeout(() => reject("Promise2 doesnt work"), 100);
+// });
+
+// let promise3 = new Promise((resolve, reject) => {
+//   setTimeout(() => resolve("Promise3 works"), 200);
+// });
+
+// let promise4 = new Promise((resolve, reject) => {
+//   setTimeout(() => reject("Promise4 doesnt work"), 50);
+// });
+
+// Promise.allSettled([promise1, promise2, promise3, promise4]).then(
+//   (response) => {
+//     const results = response.reduce(
+//       (tot, curr) => {
+//         if (curr.status === "fulfilled") {
+//           tot.resolved++;
+//         } else {
+//           tot.rejected++;
+//         }
+//         return tot;
+//       },
+//       { resolved: 0, rejected: 0 }
+//     );
+//     console.log(results);
+//   }
+// );
+
+// 5) შექმენი 5 ფრომისი და გაფილტრე ეს ფრომისები დააბრუნე ამრტო წარუმატებლები
+
+// let promise1 = new Promise((resolve, reject) => {
+//   setTimeout(() => resolve("Promise1 works"), 300);
+// });
+
+// let promise2 = new Promise((resolve, reject) => {
+//   setTimeout(() => reject("Promise2 doesnt work"), 100);
+// });
+
+// let promise3 = new Promise((resolve, reject) => {
+//   setTimeout(() => resolve("Promise3 works"), 200);
+// });
+
+// let promise4 = new Promise((resolve, reject) => {
+//   setTimeout(() => reject("Promise4 doesnt work"), 50);
+// });
+
+// let promise5 = new Promise((resolve, reject) => {
+//   setTimeout(() => reject("Promise5 doesnt work"), 150);
+// });
+
+// Promise.allSettled([promise1, promise2, promise3, promise4, promise5]).then(
+//   (response) => console.log(response.filter((el) => el.status === "rejected"))
+// );
+
+// 6)api1 = https://jsonplaceholder.typicode.com/users
+// api2 = https://jsonplaceholder.typicode.com/posts
+// გაუშვი ეს ორი API ერთდროულად
+
+// async function fetchUsers() {
+//   try {
+//     let response = await fetch("https://jsonplaceholder.typicode.com/users");
+//     let data = await response.json();
+//     console.log("UserApi", data);
+//   } catch (error) {
+//     console.log(error, "error");
+//   }
+// }
+
+// async function fetchPosts() {
+//   try {
+//     let response = await fetch("https://jsonplaceholder.typicode.com/posts");
+//     let data = await response.json();
+//     console.log("PostsApi", data);
+//   } catch (error) {
+//     console.log(error, "error");
+//   }
+// }
+
+// // fetchUsers();
+// // fetchPosts();
+// Promise.allSettled([fetchPosts(), fetchUsers()]).then((response) =>
+//   console.log(response)
+// );
