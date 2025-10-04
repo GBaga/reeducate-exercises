@@ -686,6 +686,29 @@
 // console.log(triangle1.getArea());
 
 // 2) შექმენი Smartphone (სმარტფონი) კლასი property-ებით: brand, model, releaseYear. გააკეთე ექსტენშენი GamingPhone, რომელსაც დაემატება gpuScore და batteryCapacity, და დაამატე მეთოდი performanceIndex().
+// class Smartphone {
+//   constructor(brand, model, year) {
+//     this.brand = brand;
+//     this.model = model;
+//     this.year = year;
+//   }
+// }
+
+// class GamingPhone extends Smartphone {
+//   constructor(brand, model, year, gpuScore, batteryCapacity) {
+//     super(brand, model, year);
+//     this.gpuScore = gpuScore;
+//     this.batteryCapacity = batteryCapacity;
+//   }
+
+//   performanceIndex() {
+//     return this.gpuScore * this.batteryCapacity;
+//   }
+// }
+
+// const newPhone = new GamingPhone("Nokia", "N73", 2013, 3, 5000);
+// console.log(newPhone);
+// console.log(newPhone.performanceIndex());
 
 // 3)შექმენი CryptoWallet (კრიპტო საფულე) კლასი, მეთოდებით: deposit(), withdraw(), transfer(), getHistory(),
 
@@ -722,26 +745,58 @@
 
 // 4)შექმენი Wishlist (სურვილების სია) კლასი, რომელიც ინახავს ნივთებს. მეთოდები: addItem(), deleteItem(id), updateItem()
 
-class Wishlist {
-  constructor(inithialWish) {
-    this.wList = [];
-    if (inithialWish) {
-      this.addItem(inithialWish);
-    }
-  }
+// class Wishlist {
+//   constructor() {
+//     this.wishList = [];
+//   }
 
-  addItem(wish) {
-    const item = { id: wish };
-    this.wList.push(item);
-    return item;
-  }
+//   addItem(wish) {
+//     let lastId = this.wishList[this.wishList.length - 1]?.id || 0;
+//     const newObj = { id: lastId + 1, wish };
+//     this.wishList.push(newObj);
+//   }
 
-  deleteItem(id){
-    this.wList()
-  }
-}
+//   deleteItem(id) {
+//     this.wishList = this.wishList.filter((el) => el.id !== id);
+//   }
 
-let newList = new Wishlist("mind");
-console.log(newList);
+//   updateItem(id, newWish) {
+//     this.wishList = this.wishList.map((el) => {
+//       if (el.id === id) {
+//         return { ...el, wish: newWish };
+//       } else {
+//         return el;
+//       }
+//     });
+//   }
+// }
+
+// let newList = new Wishlist();
+// newList.addItem("ferrari");
+// newList.addItem("house");
+// newList.addItem("mind");
+// newList.deleteItem(2);
+// newList.updateItem(3, "health");
+
+// console.log(newList);
 
 // 5)შექმენი Freelancer (ფრილანსერი) კლასი მეთოდით calculateEarnings(), რომელიც დათვლის შემოსავალს შესრულებული საათებისა და საათობრივი ტარიფის მიხედვით, დამატებით optional bonus-ს გადამეტებულ საათებზე (მაგ >160 სთ).
+// class Freelancer {
+//   constructor(name, hourRate, hourWork) {
+//     this.name = name;
+//     this.hourRate = hourRate;
+//     this.hourWork = hourWork;
+//   }
+
+//   calculateEarnings() {
+//     let bonus = null;
+//     if (this.hourWork > 160) {
+//       bonus = (this.hourWork - 160) * 10;
+//     }
+//     const salary = this.hourRate * this.hourWork + bonus;
+//     console.log("Salary of", this.name, "is $", salary);
+//   }
+// }
+
+// let junior = new Freelancer("Ia", 60, 161);
+// junior.calculateEarnings();
