@@ -657,3 +657,91 @@
 // Promise.allSettled([fetchPosts(), fetchUsers()]).then((response) =>
 //   console.log(response)
 // );
+
+//=================================================================================== დავალება 7
+
+// 1) შექმენი Triangle (სამკუთხედი) კლასი, რომელიც იღებს სამ გვერდს (a, b, c) და დაამატე მეთოდები: getPerimeter(), getArea() , isRightTriangle().
+
+// class Triangle {
+//   constructor(a, b, c) {
+//     this.a = a;
+//     this.b = b;
+//     this.c = c;
+//   }
+//   getPerimeter() {
+//     return this.a + this.b + this.c;
+//   }
+//   getArea() {
+//     let s = this.getPerimeter() / 2;
+//     return Math.sqrt(s * (s - this.a) * (s - this.b) * (s - this.c));
+//   }
+//   isRightTriangle() {
+//     const sides = [this.a, this.b, this.c].sort((x, y) => x - y);
+//     const [x, y, z] = sides;
+//     return Math.abs(x ** 2 + y ** 2 - z ** 2) < 1e-10;
+//   }
+// }
+
+// let triangle1 = new Triangle(3, 4, 5);
+// console.log(triangle1.getArea());
+
+// 2) შექმენი Smartphone (სმარტფონი) კლასი property-ებით: brand, model, releaseYear. გააკეთე ექსტენშენი GamingPhone, რომელსაც დაემატება gpuScore და batteryCapacity, და დაამატე მეთოდი performanceIndex().
+
+// 3)შექმენი CryptoWallet (კრიპტო საფულე) კლასი, მეთოდებით: deposit(), withdraw(), transfer(), getHistory(),
+
+// class CryptoWallet {
+//   constructor(initialMoney) {
+//     this.balance = initialMoney;
+//     this.history = [];
+//   }
+
+//   deposit(amount) {
+//     this.balance += amount;
+//     this.history.push({ type: "deposit", amount, balance: this.balance });
+//     return this.balance;
+//   }
+//   withdrow(amount) {
+//     this.balance -= amount;
+//     this.history.push({ type: "withdraw", amount, balance: this.balance });
+//     return this.balance;
+//   }
+
+//   transfer(amount) {
+//     this.balance -= amount;
+//     this.history.push({ type: "transfer", amount, balance: this.balance });
+//     return this.balance;
+//   }
+//   getHistory() {
+//     return this.history;
+//   }
+// }
+
+// let newWallet = new CryptoWallet(100);
+// console.log(newWallet.withdrow(20));
+// console.log(newWallet.getHistory());
+
+// 4)შექმენი Wishlist (სურვილების სია) კლასი, რომელიც ინახავს ნივთებს. მეთოდები: addItem(), deleteItem(id), updateItem()
+
+class Wishlist {
+  constructor(inithialWish) {
+    this.wList = [];
+    if (inithialWish) {
+      this.addItem(inithialWish);
+    }
+  }
+
+  addItem(wish) {
+    const item = { id: wish };
+    this.wList.push(item);
+    return item;
+  }
+
+  deleteItem(id){
+    this.wList()
+  }
+}
+
+let newList = new Wishlist("mind");
+console.log(newList);
+
+// 5)შექმენი Freelancer (ფრილანსერი) კლასი მეთოდით calculateEarnings(), რომელიც დათვლის შემოსავალს შესრულებული საათებისა და საათობრივი ტარიფის მიხედვით, დამატებით optional bonus-ს გადამეტებულ საათებზე (მაგ >160 სთ).
