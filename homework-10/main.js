@@ -106,19 +106,21 @@ const { text, json } = require("stream/consumers");
 
 // 8)წაიკითხე "users.json", და ყველას, ვისაც არ აქვს "@" ელფოსტაში, წაშალე
 
-async function main() {
-  const users = [
-    { name: "Gio", email: "gio@gmail.com" },
-    { name: "Nika", email: "nikaexample.com" },
-    { name: "Mariam", email: "mariam@reeducate.ge" },
-    { name: "Lasha", email: "lashareeducate.ge" },
-    { name: "Ana", email: "ana@mail.com" },
-  ];
+// async function main() {
+//   const users = [
+//     { name: "Gio", email: "gio@gmail.com" },
+//     { name: "Nika", email: "nikaexample.com" },
+//     { name: "Mariam", email: "mariam@reeducate.ge" },
+//     { name: "Lasha", email: "lashareeducate.ge" },
+//     { name: "Ana", email: "ana@mail.com" },
+//   ];
 
-  fs.writeFile("users.json", JSON.stringify(users));
-  const usersData = await fs.readFile("users.json", "utf-8");
-  const parsedUsersData = JSON.parse(usersData);
-  const userWithMail = parsedUsersData.filter((el) => el.email.includes("@"));
-  fs.writeFile("users.json", JSON.stringify(userWithMail));
-}
-main();
+//   fs.writeFile("users.json", JSON.stringify(users));
+//   const usersData = await fs.readFile("users.json", "utf-8");
+//   const parsedUsersData = JSON.parse(usersData);
+//   const userWithMail = parsedUsersData.filter((el) => el.email.includes("@"));
+//   fs.writeFile("users.json", JSON.stringify(userWithMail));
+// }
+// main();
+
+// პ.ს. წინა ყველა დავალება შესრულებული მაქვს და თუ შეიძლება ისინიც შემიმოწმეთ. მადლობა წინასწარ.
