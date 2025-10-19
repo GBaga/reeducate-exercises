@@ -1,7 +1,7 @@
 //=================================================================================== დავალება 10
-const { read } = require("fs");
-const fs = require("fs/promises");
-const { text, json } = require("stream/consumers");
+// const { read } = require("fs");
+// const fs = require("fs/promises");
+// const { text, json } = require("stream/consumers");
 
 // 1)წაიკითხე ყველა რიცხვი ფაილიდან, გამოთვალე მათი ჯამი და ჩაწერე სხვა ფაილში
 
