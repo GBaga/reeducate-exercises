@@ -1,0 +1,11 @@
+{
+  "name": "phone-cli",
+  "version": "1.0.0",
+  "main": "main.js",
+  "bin": {
+    "phone-cli": "main.js"
+  },
+  "dependencies": {
+    "commander": "^14.0.1"
+  }
+}
