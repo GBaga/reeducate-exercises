@@ -1,0 +1,13 @@
+{
+  "name": "products-cli",
+  "version": "1.0.0",
+  "main": "main.js",
+  "bin": {
+    "products-cli": "main.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "commander": "^14.0.1"
+  }
+}
