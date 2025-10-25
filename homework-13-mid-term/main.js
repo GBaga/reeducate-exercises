@@ -28,61 +28,61 @@
 
 // 4)შექმენი სერვერი სადაც გექნება როუტები,"/","/users","/posts".
 // აუცილებელია გაუკეთო ორივეს pagination,id-ის მეშვეობით ძებნა და /users ასევე დაამატე name-ით ძებნა
-import http from "http";
-import { URL } from "url";
-import fs from "fs/promises";
-import { paginate, filterUsers } from "./utils/helpers.js";
+// import http from "http";
+// import { URL } from "url";
+// import fs from "fs/promises";
+// import { paginate, filterUsers } from "./utils/helpers.js";
 
-const PORT = 8080;
+// const PORT = 8080;
 
-const server = http.createServer(async (req, res) => {
-  const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
-  const pathname = parsedUrl.pathname;
+// const server = http.createServer(async (req, res) => {
+//   const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
+//   const pathname = parsedUrl.pathname;
 
-  if (pathname === "/") {
-    const html = await fs.readFile("./index.html", "utf-8");
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.end(html);
-  }
+//   if (pathname === "/") {
+//     const html = await fs.readFile("./index.html", "utf-8");
+//     res.writeHead(200, { "Content-Type": "text/html" });
+//     res.end(html);
+//   }
 
-  if (pathname === "/users") {
-    const usersData = await fs.readFile("./users.json", "utf-8");
-    let users = JSON.parse(usersData);
+//   if (pathname === "/users") {
+//     const usersData = await fs.readFile("./users.json", "utf-8");
+//     let users = JSON.parse(usersData);
 
-    const page = parseInt(parsedUrl.searchParams.get("page")) || 1;
-    const take = parseInt(parsedUrl.searchParams.get("take")) || 10;
-    const id = parsedUrl.searchParams.get("id");
-    const name = parsedUrl.searchParams.get("name")?.toLowerCase() || "";
+//     const page = parseInt(parsedUrl.searchParams.get("page")) || 1;
+//     const take = parseInt(parsedUrl.searchParams.get("take")) || 10;
+//     const id = parsedUrl.searchParams.get("id");
+//     const name = parsedUrl.searchParams.get("name")?.toLowerCase() || "";
 
-    users = filterUsers(users, id, name);
-    const paginated = paginate(users, page, take);
+//     users = filterUsers(users, id, name);
+//     const paginated = paginate(users, page, take);
 
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(paginated, null, 2));
-  }
+//     res.writeHead(200, { "Content-Type": "application/json" });
+//     res.end(JSON.stringify(paginated, null, 2));
+//   }
 
-  if (pathname === "/posts") {
-    const postsData = await fs.readFile("./posts.json", "utf-8");
-    let posts = JSON.parse(postsData);
+//   if (pathname === "/posts") {
+//     const postsData = await fs.readFile("./posts.json", "utf-8");
+//     let posts = JSON.parse(postsData);
 
-    const page = parseInt(parsedUrl.searchParams.get("page")) || 1;
-    const take = parseInt(parsedUrl.searchParams.get("take")) || 10;
-    const id = parsedUrl.searchParams.get("id");
+//     const page = parseInt(parsedUrl.searchParams.get("page")) || 1;
+//     const take = parseInt(parsedUrl.searchParams.get("take")) || 10;
+//     const id = parsedUrl.searchParams.get("id");
 
-    if (id) {
-      posts = posts.filter((p) => p.id === parseInt(id));
-    }
+//     if (id) {
+//       posts = posts.filter((p) => p.id === parseInt(id));
+//     }
 
-    const paginated = paginate(posts, page, take);
+//     const paginated = paginate(posts, page, take);
 
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(paginated, null, 2));
-  }
-});
+//     res.writeHead(200, { "Content-Type": "application/json" });
+//     res.end(JSON.stringify(paginated, null, 2));
+//   }
+// });
 
-server.listen(PORT, () => {
-  console.log(`Server runs on http://localhost:${PORT}`);
-});
+// server.listen(PORT, () => {
+//   console.log(`Server runs on http://localhost:${PORT}`);
+// });
 
 // 5) შექმენი products-cli,რომელსაც ექნება დამატება,წაკითხვა,id-ის მიხედვით წაკითხვა, წაშლა და აფდეითი.fields(name,description,date,category)
 // + მე თუ გავატან option ის მიხედვით --isexpire. უნდა შეამოწმოს თარიღი და დაამატოს ვადა აქვს გასული თუ არა
