@@ -139,6 +139,23 @@ app.delete("/orders/:id", (req, res) => {
     .json({ message: "Order deleted successfully", data: deletedOrders });
 });
 
+app.put("/orders/:id", (req, res) => {
+  const { id } = req.params;
+  const findOrderIndex = orders.findIndex((el) => el.id === Number(id));
+
+  const { productName, quantity, totalPrice, status } = req.body;
+
+  orders[findOrderIndex] = {
+    ...orders[findOrderIndex],
+    productName,
+    quantity,
+    totalPrice,
+    status,
+  };
+
+  res.json({ message: "updated successfully", data: orders[findOrderIndex] });
+});
+
 app.listen(PORT, () => {
   console.log(`servers running on the http//localhost:${PORT}`);
 });
