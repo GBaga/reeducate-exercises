@@ -7,13 +7,16 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
+    "module": "ESNext", // Changed to ESNext for true ESM output
     "target": "esnext",
     "types": [],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
     // and npm install -D @types/node
+
+    "esModuleInterop": true,
+    "moduleResolution": "bundler", // Changed to bundler for ESM
 
     // Other Outputs
     "sourceMap": true,

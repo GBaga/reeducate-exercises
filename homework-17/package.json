@@ -1,6 +1,18 @@
 {
+  "type": "module",
+  "name": "homework-17",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc && node dist/index.js"
+  },
   "dependencies": {
     "express": "^5.1.0",
+    "mongodb": "^7.0.0",
     "mongoose": "^8.19.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.0"
   }
 }
